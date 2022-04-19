@@ -4,7 +4,7 @@ import 'package:fila_antendimento/src/configuration/infra/adapters/json_to_oder.
 class JsonToQueue {
   static QueueEntity fromMap(dynamic json) {
     return QueueEntity(
-      id: '',
+      id: json['id'],
       title: json['title'],
       abbr: json['abbr'],
       priority: json['priority'],

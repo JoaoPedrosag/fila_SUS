@@ -5,9 +5,14 @@ import 'package:fila_antendimento/src/configuration/domain/value_objects/order.d
 class JsonToOrder {
   static Order fromMap(dynamic json) {
     return Order(
+      id: json['id'],
       position: json['position'],
-      timestamp: json['timestamp'],
-      status: json['priority'],
+      timestamp: DateTime.parse(
+        json['timestamp'],
+      ),
+      status: OrderStatus.values.firstWhere((element) {
+        return element.name == json['status'];
+      }),
     );
   }
 }

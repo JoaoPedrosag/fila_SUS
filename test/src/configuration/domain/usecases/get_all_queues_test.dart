@@ -1,12 +1,10 @@
 import 'package:fila_antendimento/src/configuration/domain/entities/queue_entity.dart';
-import 'package:fila_antendimento/src/configuration/domain/repositories/queue_repository.dart';
+
 import 'package:fila_antendimento/src/configuration/domain/usecases/get_all_queues.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class QueueRepositoryMock extends Mock implements IQueueRepository {}
-
-class QueueEntityMock extends Mock implements QueueEntity {}
+import '../../../../mocks/mocks.dart';
 
 void main() {
   test('deve retornar uma lista de QueueEntiry', () {
