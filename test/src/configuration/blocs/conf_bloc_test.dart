@@ -15,8 +15,8 @@ void main() {
 
       when(() => usecase.call()).thenAnswer((_) => Stream.value([]));
 
-      return ConfBLoc(usecase);
+      return ConfigurationBloc(usecase);
     },
-    expect: () => [isA<LoadedConfState>()],
+    expect: () => [isA<LoadedConfigurationState>()],
   );
 }

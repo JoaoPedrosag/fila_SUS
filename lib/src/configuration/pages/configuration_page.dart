@@ -1,14 +1,28 @@
 import 'package:fila_antendimento/src/configuration/blocs/conf_bloc.dart';
+import 'package:fila_antendimento/src/configuration/events/conf_event.dart';
 import 'package:fila_antendimento/src/configuration/states/conf_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ConfigurationPage extends StatelessWidget {
+class ConfigurationPage extends StatefulWidget {
   const ConfigurationPage({Key? key}) : super(key: key);
 
   @override
+  State<ConfigurationPage> createState() => _ConfigurationPageState();
+}
+
+class _ConfigurationPageState extends State<ConfigurationPage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      context.read<ConfigurationBloc>().add(FetchQueues());
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final bloc = context.watch<ConfBLoc>();
+    final bloc = context.watch<ConfigurationBloc>();
     final state = bloc.state;
 
     return Scaffold(
@@ -29,7 +43,7 @@ class ConfigurationPage extends StatelessWidget {
                   const Icon(Icons.add, color: Colors.red),
                 ],
               ),
-              if (state is LoadedConfState)
+              if (state is LoadedConfigurationState)
                 ListView.builder(
                   shrinkWrap: true,
                   itemCount: state.queues.length,
@@ -62,3 +76,4 @@ class ConfigurationPage extends StatelessWidget {
     );
   }
 }
+/// parei 25:00

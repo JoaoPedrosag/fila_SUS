@@ -1,24 +1,23 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:fila_antendimento/src/configuration/domain/entities/queue_entity.dart';
 import 'package:fila_antendimento/src/configuration/domain/usecases/get_all_queues.dart';
 import 'package:fila_antendimento/src/configuration/events/conf_event.dart';
 import 'package:fila_antendimento/src/configuration/states/conf_state.dart';
 
-class ConfBLoc extends Bloc<ConfEvent, ConfState> {
+class ConfigurationBloc extends Bloc<ConfEvent, ConfigurationState> {
   final IGetAllQueues getAllqueuesUseCase;
-  late final StreamSubscription _sub;
-  ConfBLoc(this.getAllqueuesUseCase) : super(EmptyConfState()) {
-    _sub = getAllqueuesUseCase.call().listen((data) {
-      add(AddQueues(data));
+
+  ConfigurationBloc(this.getAllqueuesUseCase)
+      : super(EmptyConfigurationState()) {
+    on<FetchQueues>((event, emit) async {
+      emit(LoadingConfigurationState());
+
+      await emit.forEach<List<QueueEntity>>(
+        getAllqueuesUseCase.call(),
+        onData: (queues) => LoadedConfigurationState(queues),
+      );
     });
-
-    on<AddQueues>((event, emit) => emit(LoadedConfState(event.queues)));
-  }
-
-  @override
-  Future<void> close() async {
-    await _sub.cancel();
-    super.close();
   }
 }

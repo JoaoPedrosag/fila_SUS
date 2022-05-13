@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 final configurationModule = [
   BlocProvider(
-    create: (context) => ConfBLoc(
+    create: (context) => ConfigurationBloc(
       context.read(),
     ),
   ),
