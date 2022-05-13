@@ -1,16 +1,18 @@
 import 'package:fila_antendimento/src/configuration/domain/entities/queue_entity.dart';
 
-abstract class ConfState {}
+abstract class ConfigurationState {}
 
-class EmptyConfState extends ConfState {}
+class EmptyConfigurationState extends ConfigurationState {}
 
-class LoadedConfState extends ConfState {
+class LoadingConfigurationState extends ConfigurationState {}
+
+class LoadedConfigurationState extends ConfigurationState {
   final List<QueueEntity> queues;
 
-  LoadedConfState(this.queues);
+  LoadedConfigurationState(this.queues);
 }
 
-class ExceptionConfState extends ConfState {
+class ExceptionConfState extends ConfigurationState {
   final String message;
 
   ExceptionConfState(this.message);

@@ -2,8 +2,4 @@ import 'package:fila_antendimento/src/configuration/domain/entities/queue_entity
 
 abstract class ConfEvent {}
 
-class AddQueues implements ConfEvent {
-  final List<QueueEntity> queues;
-
-  AddQueues(this.queues);
-}
+class FetchQueues implements ConfEvent {}
