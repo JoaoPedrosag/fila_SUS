@@ -1,3 +1,3 @@
 abstract class IQueueDatasource {
-  Stream<List<Map>> GetAllQueues();
+  Stream<List<Map>> getAllQueues();
 }

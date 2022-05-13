@@ -8,7 +8,7 @@ import '../../../../mocks/mocks.dart';
 void main() {
   test('queue repostiory GetAllQueues', () {
     final datasource = IQueueDatasourceMock();
-    when(() => datasource.GetAllQueues()).thenAnswer(
+    when(() => datasource.getAllQueues()).thenAnswer(
       (_) => Stream.value(
         [
           {

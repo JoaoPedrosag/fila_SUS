@@ -18,7 +18,9 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData.dark(),
-        home: const ConfigurationPage(),
+        routes: {
+          '/': (context) => ConfigurationPage(),
+        },
       ),
     );
   }

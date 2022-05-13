@@ -23,7 +23,7 @@ void main() {
     );
 
     final datasource = QueueFirestoreDatasource(firestore);
-    final result = datasource.GetAllQueues();
+    final result = datasource.getAllQueues();
     expect(result, emits(isA<List<Map>>()));
   });
 }

@@ -14,5 +14,5 @@ final queueModule = [
       create: (context) => QueueFirestoreDatasource(context.read())),
   Provider<IQueueRepository>(
       create: (context) => QueueRepository(context.read())),
-  Provider<GetAllQueues>(create: (context) => GetAllQueues(context.read())),
+  Provider<IGetAllQueues>(create: (context) => GetAllQueues(context.read())),
 ];

@@ -9,7 +9,7 @@ class QueueRepository implements IQueueRepository {
   QueueRepository(this.datasource);
   @override
   Stream<List<QueueEntity>> GetAllQueues() {
-    final stream = datasource.GetAllQueues();
+    final stream = datasource.getAllQueues();
 
     return stream.map(_convert);
   }

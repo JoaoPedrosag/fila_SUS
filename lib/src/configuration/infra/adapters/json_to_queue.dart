@@ -6,8 +6,8 @@ class JsonToQueue {
     return QueueEntity(
       id: json['id'],
       title: json['title'],
-      abbr: json['abbr'],
       priority: json['priority'],
+      abbr: json['abbr'],
       orders: [
         if (json.containsKey('orders'))
           ...(json['orders'] as List).map(JsonToOrder.fromMap).toList(),
