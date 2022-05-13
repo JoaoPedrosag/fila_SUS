@@ -42,11 +42,11 @@ class ConfigurationPage extends StatelessWidget {
                     );
                   },
                 ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const Text('Controle'),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               ElevatedButton(
@@ -54,7 +54,7 @@ class ConfigurationPage extends StatelessWidget {
                     primary: Colors.black,
                   ),
                   onPressed: () {},
-                  child: Text('Reiniciar Filas'))
+                  child: const Text('Reiniciar Filas'))
             ],
           ),
         ),
