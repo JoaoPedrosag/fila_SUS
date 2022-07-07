@@ -15,12 +15,12 @@ class JsonToQueue {
     );
   }
 
-  static Map toMap(QueueEntity queue){
+  static Map toMap(QueueEntity queue) {
     return {
       'id': queue.id,
       'title': queue.title,
       'priority': queue.priority,
       'abbr': queue.abbr,
-    }
+    };
   }
 }
